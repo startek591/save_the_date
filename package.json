@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/startek591/save_the_date/issues"
   },
-  "homepage": "https://github.com/startek591/save_the_date#readme"
+  "homepage": "https://github.com/startek591/save_the_date#readme",
+  "devDependencies": {
+    "mongoose": "^6.4.4"
+  }
 }
