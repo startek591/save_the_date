@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/startek591/save_the_date#readme",
   "devDependencies": {
+    "cuid": "^2.1.8",
     "mongoose": "^6.4.4"
   }
 }
