@@ -4,7 +4,9 @@
   module.exports = {
     createUser,
     getUser,
-    listUsers
+    listUsers,
+    editUser,
+    deleteUser
   }
 
   async function createUser(request, response) {
@@ -26,6 +28,17 @@
       limit: Number(limit)
     });
     response.json(users);
+  }
+
+  async function editUser(request, response) {
+    const change = request.body;
+    const users = await Users.edit(request.params.username, change);
+    response.json(users);
+  }
+
+  async function deleteUser(request, response) {
+    await Users.remove(request.params.id);
+    response.json({ success: true });
   }
 
 }());

@@ -13,6 +13,8 @@
     create,
     get,
     list,
+    edit,
+    remove,
     model: User
   }
 
@@ -37,4 +39,19 @@
 
     return user;
   }
+
+  async function edit (username, change) {
+    const user = await get(username);
+    Object.keys(change).forEach(function (key) {
+      user[key] = change[key];
+      user.save();
+      return user;
+    });
+  }
+
+  async function remove (_id) {
+    await User.deleteOne({ _id });
+  }
+
+
 }());
