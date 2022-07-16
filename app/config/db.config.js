@@ -6,4 +6,6 @@
     () => { console.log(`Successfully connected to the database`); },
     (error) => { console.log(`The database did not connect successfully. ${error}`)});
 
+  module.exports = mongoose;
+
 }());
