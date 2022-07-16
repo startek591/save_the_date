@@ -29,7 +29,7 @@
     return user;
   }
 
-  async function list (opts = {}) {
+  async function list(opts = {}) {
     const { offset = 0, limit = 25 } = opts
     const query = {};
     const user = await User.find(query)
@@ -40,7 +40,7 @@
     return user;
   }
 
-  async function edit (username, change) {
+  async function edit(username, change) {
     const user = await get(username);
     Object.keys(change).forEach(function (key) {
       user[key] = change[key];
@@ -49,9 +49,7 @@
     });
   }
 
-  async function remove (_id) {
+  async function remove(_id) {
     await User.deleteOne({ _id });
   }
-
-
 }());

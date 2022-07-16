@@ -40,5 +40,4 @@
     await Users.remove(request.params.id);
     response.json({ success: true });
   }
-
 }());
