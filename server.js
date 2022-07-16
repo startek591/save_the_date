@@ -13,7 +13,6 @@
   app.use(middleware.cors);
   app.use(middleware.handleValidationError);
   app.use(middleware.handleError);
-  app.use(middleware.notFound);
 
   app.get('/api/users', api.listUsers);
   app.post('/api/users', api.createUser);

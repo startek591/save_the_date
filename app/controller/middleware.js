@@ -3,7 +3,6 @@
   
   module.exports = {
     cors,
-    notFound,
     handleError,
     handleValidationError
   }
@@ -31,10 +30,6 @@
     const statusCode = error.statusCode || 500;
     const errorMessage = STATUS_CODES[statusCode] || 'Internal Error';
     response.status(statusCode).json({ error: errorMessage })
-  }
-
-  function notFound (request, response) {
-    response.status(404).json({ error: 'Not Found' });
   }
 
   function handleValidationError (error, request, response, next) {
