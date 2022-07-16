@@ -29,6 +29,7 @@
 
     if (!error.statusCode) console.error(error);
     const statusCode = error.statusCode || 500;
+    const errorMessage = STATUS_CODES[statusCode] || 'Internal Error';
     response.status(statusCode).json({ error: errorMessage })
   }
 
