@@ -5,18 +5,19 @@
   const User = db.model('User', {
     _id: { type: String, default: cuid },
     username: { type: String, required: true },
-    password: { type: String, required: true  },
+    password: { type: String, required: true },
     email: { type: String, required: true }
   });
 
   module.exports = {
     create,
+    get,
     model: User
   }
 
   async function create(fields) {
     const user = new User(fields);
-    await user.save(function(error) {
+    await user.save(function (error) {
       if (error) handleError(error);
       else {
         console.log('A user has been created successfully.')
@@ -25,4 +26,9 @@
     return user;
   }
 
+  async function get(username) {
+    const user = await User.findOne({ username });
+    return user;
+  }
+  
 }());

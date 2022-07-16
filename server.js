@@ -1,4 +1,4 @@
-(function(){
+(function () {
   const express = require('express');
   const bodyParser = require('body-parser');
   const port = process.env.PORT || 1337;
@@ -8,6 +8,8 @@
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
+  app.get('/api/user/:username', api.getUser);
   app.post('/api/users', api.createUser);
-  app.listen(port, () => { console.log(`Server has connected successfully at port ${port}.`)});
+
+  app.listen(port, () => { console.log(`Server has connected successfully at port ${port}.`) });
 }());
