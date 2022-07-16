@@ -12,17 +12,13 @@
   module.exports = {
     create,
     get,
+    list,
     model: User
   }
 
   async function create(fields) {
     const user = new User(fields);
-    await user.save(function (error) {
-      if (error) handleError(error);
-      else {
-        console.log('A user has been created successfully.')
-      }
-    });
+    await user.save();
     return user;
   }
 
@@ -30,5 +26,15 @@
     const user = await User.findOne({ username });
     return user;
   }
-  
+
+  async function list (opts = {}) {
+    const { offset = 0, limit = 25 } = opts
+    const query = {};
+    const user = await User.find(query)
+    .sort({ _id: 1 })
+    .skip(offset)
+    .limit(limit)
+
+    return user;
+  }
 }());

@@ -3,7 +3,8 @@
 
   module.exports = {
     createUser,
-    getUser
+    getUser,
+    listUsers
   }
 
   async function createUser(request, response) {
@@ -16,6 +17,15 @@
     const user = await Users.get(username);
     if (!user) return next();
     response.json(user);
+  }
+
+  async function listUsers(request, response) {
+    const { offset = 0, limit = 25 } = request.query;
+    const users = await Users.list({
+      offset: Number(offset),
+      limit: Number(limit)
+    });
+    response.json(users);
   }
 
 }());

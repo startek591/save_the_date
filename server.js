@@ -9,6 +9,7 @@
   app.use(bodyParser.json());
 
   app.get('/api/user/:username', api.getUser);
+  app.get('/api/users', api.listUsers);
   app.post('/api/users', api.createUser);
 
   app.listen(port, () => { console.log(`Server has connected successfully at port ${port}.`) });
