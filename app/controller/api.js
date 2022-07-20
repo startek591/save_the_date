@@ -1,12 +1,18 @@
 (function () {
   const Users = require('../model/users');
+  const path = require('path');
 
   module.exports = {
+    serveFrontend,
     createUser,
     getUser,
     listUsers,
     editUser,
     deleteUser
+  }
+
+  function serveFrontend(request, response) {
+    response.sendFile(path.join(__dirname + '/../../public/app/views/index.html'));
   }
 
   async function createUser(request, response) {

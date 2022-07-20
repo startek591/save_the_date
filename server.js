@@ -13,6 +13,9 @@
   app.use(middleware.cors);
   app.use(middleware.handleValidationError);
   app.use(middleware.handleError);
+  app.use(express.static(__dirname + '/public'));
+
+  app.get('/home', api.serveFrontend);
 
   app.get('/api/users', api.listUsers);
   app.post('/api/users', api.createUser);
